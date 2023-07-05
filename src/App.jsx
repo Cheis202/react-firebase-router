@@ -20,11 +20,14 @@ const App = ( )=> {
       <Navbar/>
       <Routes>
         
-        <Route path="/" element={
-          <RequireAuth>
-            <Home/>
-          </RequireAuth>
-        }></Route>
+        <Route 
+          path="/" 
+          element={
+            <RequireAuth>
+              <Home/>
+            </RequireAuth>
+            }
+        />
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
       </Routes>
