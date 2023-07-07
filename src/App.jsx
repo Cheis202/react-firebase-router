@@ -6,8 +6,7 @@ import RequireAuth from "./components/RequireAuth"
 import Register from "./routes/Register"
 import { useContext } from "react"
 import { UserContext } from "./context/UserProvider"
-const App = ( )=> {
-  
+const App = ( )=> {  
   const {user} = useContext(UserContext)
 
   if(user === false){
@@ -19,7 +18,6 @@ const App = ( )=> {
     <> 
       <Navbar/>
       <Routes>
-        
         <Route 
           path="/" 
           element={

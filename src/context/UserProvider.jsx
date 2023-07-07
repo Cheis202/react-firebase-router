@@ -2,15 +2,14 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { createContext, useEffect, useState } from "react"
 import { auth } from "../firebase"
 
-
 export const UserContext = createContext() 
 
-
+// eslint-disable-next-line react/prop-types
 const UserProvider  = ({children}) => { 
-
+    const [user, setUser] = useState(false)
 
     useEffect(()=>{
-        const unsuscribe = onAuthStateChanged(auth,user=>{
+        const unsuscribe = onAuthStateChanged(auth,(user)=>{
             if(user){
                 const {email,photoURL,displayName,uid} = user
                 setUser({email,photoURL,displayName,uid})
@@ -22,7 +21,7 @@ const UserProvider  = ({children}) => {
         return ()=>unsuscribe()
     },[])
 
-    const [user, setUser] = useState(false)
+    
 
     const registerUser = (email,password) =>{
         createUserWithEmailAndPassword(auth,email,password)
@@ -31,7 +30,6 @@ const UserProvider  = ({children}) => {
         signInWithEmailAndPassword(auth,email,password)
     }
     const signOutUser = ()=> signOut(auth)
-
 
     return (
         <UserContext.Provider value={{user,setUser,registerUser, loginUser,signOutUser}}>
