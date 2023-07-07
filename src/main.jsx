@@ -3,11 +3,13 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import UserProvider from './context/UserProvider.jsx'
 import './index.css'
+import "flowbite"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <UserProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-  </UserProvider>
+  <BrowserRouter>
+    <UserProvider>
+          <App />
+    </UserProvider>
+  </BrowserRouter>
+  
 )
