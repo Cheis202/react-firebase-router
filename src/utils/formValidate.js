@@ -9,6 +9,11 @@ export const formValidate = () => {
             value: /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/,
             message: "Formato de email invalido"
         },
+        patternURL:{
+            // eslint-disable-next-line no-useless-escape
+            value: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
+            message: "Formato de url invalido"
+        },
         minLength:{
             value:6,
             message: "Minimo 6 caracteres"
